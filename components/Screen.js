@@ -25,7 +25,7 @@ const Screen = ({ children }) => {
           color={'#fff'}
           backgroundColor='#fff'
           actionItems={[
-            <Icon.Button color='#212121' style={styles.iconButton} name='heart-outline' size={24} />,
+            <Icon.Button color='#212121'  style={styles.iconButton} name='add-outline' size={24} />,
             <Icon.Button color='#212121' style={styles.iconButton} name='heart-outline' size={24} />,
             <Icon.Button color='#212121' style={styles.iconButton} name='heart-outline' size={24} />
           ]} />
@@ -47,6 +47,10 @@ const styles = StyleSheet.create({
     containerMain: {
         flex: 1,
     },
+    iconButton: {
+        backgroundColor: '#fff',
+        flex: 1,
+    }
 });
 
 export default Screen;

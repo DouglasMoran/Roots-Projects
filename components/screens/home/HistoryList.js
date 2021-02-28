@@ -3,15 +3,15 @@ import {
     View,
     StyleSheet
 } from 'react-native';
-import HorizotalList from './HorizontalList'
+import VerticalList from '../../VerticalList';
 
-const BreakingNews = ({ data }) => {
+const HistoryList = ({ data }) => {
     return (
-        <HorizotalList data={data} />
+        <VerticalList data={data} />
     )
 }
 
 const styles = StyleSheet.create({
     container: {}
 })
-export default BreakingNews;
+export default HistoryList;

@@ -1,20 +1,20 @@
 import React from 'react';
 import {
+    View,
     StyleSheet,
     FlatList
 } from 'react-native';
-import Post from './Post';
+import History from './screens/home/History'
 
-
-const HorizotalList = ({ data }) => {
+const VerticalList = ({ data }) => {
     return (
         <>
             <FlatList
                 data={data}
                 keyExtractor={item => item.id}
-                showsVerticalScrollIndicator={false}
-                renderItem={({ item }) => <Post item={item} />}
-
+                horizontal
+                showsHorizontalScrollIndicator={false}
+                renderItem={({ item }) => <History item={item} />}
             />
         </>
     )
@@ -29,4 +29,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default HorizotalList;
+export default VerticalList;

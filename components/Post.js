@@ -4,12 +4,12 @@ import {
     StyleSheet,
     Dimensions
 } from 'react-native';
-import BlockCard from './BlockCard'
+import PostCard from './PostCard'
 
 const { width } = Dimensions.get('window')
 
-const SmallCard = ({ item }) => {
-    return <BlockCard
+const Post = ({ item }) => {
+    return <PostCard
         style={styles.container}
         style={styles.mainCardStyle}
         item={item} />;
@@ -17,13 +17,14 @@ const SmallCard = ({ item }) => {
 
 const styles = StyleSheet.create({
     container: {
-        width: width / 5,
+        width: width / 2,
         marginRight: 15,
         height: 200
     },
     mainCardStyle: {
         maxWidth: 400,
-        width: '100%'
+        width: '100%',
+        borderRadius: 0,
     },
     imageStyle: {
         flex: 1,
@@ -31,5 +32,4 @@ const styles = StyleSheet.create({
     }
 })
 
-
-export default SmallCard;
+export default Post;

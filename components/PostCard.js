@@ -17,7 +17,7 @@ import {
 
 import Icon from 'react-native-vector-icons/Ionicons'
 
-const BlockCard = ({ style, mainCardStyle, item }) => {
+const PostCard = ({ style, mainCardStyle, item }) => {
   return (
     /**{ flexDirection: 'row', alignItems: 'center' } */
     <View style={[style.container, style]}/*style={[style.container, style]} */>
@@ -34,7 +34,7 @@ const BlockCard = ({ style, mainCardStyle, item }) => {
           // subtitle={'Jon Snow'}
           subtitle={item.name}
           subtitleStyles={{ marginTop: 12, textAlign: 'center', fontSize: 16 }}
-          action={<Icon.Button name="more-vert" size={24} />}
+          action={<Icon.Button color='#212121' style={styles.iconButton} name="menu-outline" size={24} />}
         />
         <CardMedia
           image={
@@ -52,12 +52,12 @@ const BlockCard = ({ style, mainCardStyle, item }) => {
         </CardContent>
         <CardActions
           leftActionItems={[
-            <Icon.Button style={styles.item} name="bookmark-border" size={30} />,
-            <Icon.Button style={styles.item} name="bookmark-border" size={30} />,
-            <Icon.Button style={styles.item} name="bookmark-border" size={30} />
+            <Icon.Button color='#212121' style={styles.iconButton} name="menu" size={24} />,
+            <Icon.Button color='#212121' style={styles.iconButton} name="add-outline" size={24} />,
+            <Icon.Button color='#212121' style={styles.iconButton} name="heart-outline" size={24} />
           ]}
           rightActionItems={[
-            { name: 'share' } 
+            { name: 'share' }
           ]}
         />
       </Card>
@@ -68,10 +68,10 @@ const BlockCard = ({ style, mainCardStyle, item }) => {
 const styles = StyleSheet.create({
   container: {
     width: '100%',
-    height: 300,
-    borderRadius: 8,
+    height: 275,
     overflow: 'hidden',
-    backgroundColor: '#fff'
+    backgroundColor: '#fff',
+    marginTop: 16,
   },
   image: {
     width: '100%',
@@ -85,6 +85,10 @@ const styles = StyleSheet.create({
     padding: 4,
     color: '#212121'
   },
+  iconButton: {
+    backgroundColor: '#fff',
+    flex: 1,
+  },
 })
 
-export default BlockCard;
+export default PostCard;
