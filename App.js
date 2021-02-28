@@ -1,3 +1,4 @@
+import 'react-native-gesture-handler';
 /**
  * Sample React Native App
  * https://github.co69.m/facebook/react-native
@@ -5,9 +6,9 @@
  * @format
  * @flow strict-local
  */
-
-import React, { Component } from 'react';
-import { View, StyleSheet, Dimensions, Image, Text } from 'react-native';
+import React from 'react';
+import { View, StyleSheet, Dimensions } from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons'
 import Screen from './components/Screen';
 
 import PostList from './components/PostList';
@@ -16,7 +17,69 @@ import posts from './sourceData'
 import HistoryList from './components/screens/home/HistoryList'
 import avatars from './avatarsSourceData'
 
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
+import HomeScreen from './components/screens/HomeScreen'
+import MediaScreen from './components/screens/MediaScreen'
+import ProfileScreen from './components/screens/ProfileScreen'
+import SearchSreen from './components/screens/SearchSreen'
+
+const Tab = createBottomTabNavigator();
+
 const { width } = Dimensions.get('window')
+
+function MyTabs() {
+  return (
+    <Tab.Navigator
+      initialRouteName="Home"
+      tabBarOptions={{
+        activeTintColor: '#e91e63',
+      }}
+    >
+      <Tab.Screen
+        name="Home"
+        component={HomeScreen}
+        options={{
+          tabBarLabel: 'Home',
+          tabBarIcon: ({ color, size }) => (
+            <Icon name="hommenu-outlinee" color={color} size={size} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Media"
+        component={MediaScreen}
+        options={{
+          tabBarLabel: 'Updates',
+          tabBarIcon: ({ color, size }) => (
+            <Icon name="menu-outline" color={color} size={size} />
+          ),
+          tabBarBadge: 3,
+        }}
+      />
+      <Tab.Screen
+        name="Search"
+        component={SearchSreen}
+        options={{
+          tabBarLabel: 'Profile',
+          tabBarIcon: ({ color, size }) => (
+            <Icon name="menu-outline" color={color} size={size} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Profile"
+        component={ProfileScreen}
+        options={{
+          tabBarLabel: 'Profile',
+          tabBarIcon: ({ color, size }) => (
+            <Icon name="menu-outline" color={color} size={size} />
+          ),
+        }}
+      />
+    </Tab.Navigator>
+  );
+}
 
 const TestApp = () => {
 
@@ -59,4 +122,10 @@ const styles = StyleSheet.create({
   }
 });
 
-export default TestApp;
+export default function MainTabsScreen() {
+  return (
+    <NavigationContainer>
+      <MyTabs />
+    </NavigationContainer>
+  );
+}
