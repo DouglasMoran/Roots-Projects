@@ -1,8 +1,11 @@
 import React from 'react';
 import { Text } from 'react-native';
 
-export default class HomeScreen extends Component {
-    render() {
-        return (<Text style={{ alignItems: 'center', fontSize: 25 }} >Profile Screen</Text>)
-    }
+const ProfileScreen = () => {
+    return (
+        <Text>This is Profile Screen</Text>
+    )
 }
+
+
+export default ProfileScreen;
